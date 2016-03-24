@@ -11,6 +11,7 @@ webApp.controller('HomepageController', ['$scope', '$modal', function($scope, $m
 					item: $scope.items[0]
 				};
 
+
 				$scope.ok = function () {
 					$modalInstance.close($scope.selected.item);
 				};
