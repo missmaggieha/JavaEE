@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Includes a sample Web App Boilerplate",
   "main": "app.js",
-  "dependencies": {
-    "angular-bootstrap-boilerplate": "^0.0.2"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
