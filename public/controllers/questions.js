@@ -37,7 +37,7 @@ webApp.controller('QuestionsController', ['$scope', '$modal', '$location', 'Post
 	}
 
 	$scope.changeType = function () {
-		$scope.answers = [];
+		$scope.question.answers = [];
 		$scope.question.type = Number($scope.question.type)
 	}
 
