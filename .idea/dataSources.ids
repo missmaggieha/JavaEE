@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="DPS904_Zenit" uuid="52144761-dd76-4801-84a4-642ea30897cb">
+    <database-info product="MySQL" version="5.0.24-standard-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="dps904_161a20"/>
+    <table name="ANSWER" schema="" catalog="dps904_161a20" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="IS_CORRECT" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="TEXT" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="QUESTION_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="FK_ANSWER_QUESTION_ID" unique="false" columns="QUESTION_ID"/>
+    </table>
+    <table name="MESSAGE" schema="" catalog="dps904_161a20" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="MAX" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="MESSAGE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MIN" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="TEST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="FK_MESSAGE_TEST_ID" unique="false" columns="TEST_ID"/>
+    </table>
+    <table name="QUESTION" schema="" catalog="dps904_161a20" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DIFFICULTY" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="EXPLANATION" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="QUESTION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="TYPE" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TEST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="FK_QUESTION_TEST_ID" unique="false" columns="TEST_ID"/>
+    </table>
+    <table name="RESPONSE" schema="" catalog="dps904_161a20" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="DATE_SUBMITTED" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="SCORE" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="TEST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="USER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="FK_RESPONSE_TEST_ID" unique="false" columns="TEST_ID"/>
+      <index name="FK_RESPONSE_USER_ID" unique="false" columns="USER_ID"/>
+    </table>
+    <table name="RESPONSE_DETAILS" schema="" catalog="dps904_161a20" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ANSWER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="QUESTION_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="RESPONSE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="FK_RESPONSE_DETAILS_ANSWER_ID" unique="false" columns="ANSWER_ID"/>
+      <index name="FK_RESPONSE_DETAILS_QUESTION_ID" unique="false" columns="QUESTION_ID"/>
+      <index name="FK_RESPONSE_DETAILS_RESPONSE_ID" unique="false" columns="RESPONSE_ID"/>
+    </table>
+    <table name="SEQUENCE" schema="" catalog="dps904_161a20" type="TABLE">
+      <column name="SEQ_NAME" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="SEQ_COUNT" sqlType="DECIMAL" precision="38" scale="0" nullable="true" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="SEQ_NAME"/>
+    </table>
+    <table name="TEST" schema="" catalog="dps904_161a20" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="DESCRIPTION" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="TEST_ID_uindex" unique="true" columns="ID"/>
+    </table>
+    <table name="USER" schema="" catalog="dps904_161a20" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EMAIL" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="MESSAGE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="ROLE" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="EMAIL" unique="true" columns="EMAIL"/>
+      <index name="USER_ID_uindex" unique="true" columns="ID"/>
+    </table>
+  </data-source>
+</component>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="QUIZ">
+        <class>model.User</class>
+        <class>model.Test</class>
+        <class>model.Question</class>
+        <class>model.Answer</class>
+        <class>model.Message</class>
+        <class>model.Response</class>
+        <class>model.ResponseDetails</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://zenit.senecac.on.ca/dps904_161a20"/>
+            <property name="javax.persistence.jdbc.user"
+                      value="dps904_161a20"/>
+            <property name="javax.persistence.jdbc.password"
+                      value="ksLW8525"/>
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.jdbc.Driver"/>
+            <property name="eclipselink.logging.level"
+                      value="FINE"/>
+            <!-- EclipseLink should create the database automatically -->
+            <property name="eclipselink.ddl-generation"
+                      value="create-tables"/>
+            <!--<property name="javax.persistence.jdbc.url" -->
+            <!--value="jdbc:oracle:thin:@//zenit.senecac.on.ca:1521/neptune"/>-->
+            <!--<property name="javax.persistence.jdbc.user" -->
+            <!--value="dbj565_151a20"/>-->
+            <!--<property name="javax.persistence.jdbc.password" -->
+            <!--value="bnHKxxxx"/>-->
+            <!--<property name="javax.persistence.jdbc.driver" -->
+            <!--value="oracle.jdbc.OracleDriver"/>-->
+            <!--<property name="eclipselink.logging.level" -->
+            <!--value="FINE"/>-->
+            <!-- EclipseLink should create the database schema automatically -->
+            <!--<property name="eclipselink.ddl-generation" -->
+            <!--value="create-tables"/>-->
+            <!--<property name="eclipselink.ddl-generation.output-mode"-->
+            <!--value="database" />-->
+        </properties>
+    </persistence-unit>
+</persistence>

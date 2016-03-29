@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="DPS904_Zenit" uuid="52144761-dd76-4801-84a4-642ea30897cb">
+      <secret-storage>master_key</secret-storage>
+      <user-name>dps904_161a20</user-name>
+      <schema-pattern>dps904_161a20.*</schema-pattern>
+      <default-schemas>information_schema.*</default-schemas>
+    </data-source>
+  </component>
+</project>
