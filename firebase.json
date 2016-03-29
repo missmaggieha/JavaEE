@@ -1,0 +1,9 @@
+{
+  "firebase": "java-dps",
+  "public": "public",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

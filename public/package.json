@@ -1,0 +1,21 @@
+{
+  "name": "dps-java",
+  "version": "1.0.0",
+  "description": "Includes a sample Web App Boilerplate",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pbellesa/JavaEE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pbellesa/JavaEE/issues"
+  },
+  "homepage": "https://github.com/pbellesa/JavaEE#readme"
+}
