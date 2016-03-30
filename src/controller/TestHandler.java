@@ -20,6 +20,7 @@ public class TestHandler extends HttpServlet {
     private static String add = "/admin/add-test.jsp";
     private static String edit = "/admin/edit-test.jsp";
     private static String list = "/admin/home.jsp";
+    private static String studentView = "/student/view-test.jsp";
 
     private TestDao dao;
     public TestHandler() {
@@ -80,6 +81,15 @@ public class TestHandler extends HttpServlet {
             redirect = list;
 
             response.sendRedirect(redirect);
+        }
+
+        else if(action.equalsIgnoreCase("studentView")){
+
+            request.setAttribute("id", request.getParameter("ID"));
+            redirect = studentView;
+
+            RequestDispatcher rd = request.getRequestDispatcher(redirect);
+            rd.forward(request, response);
         }
 
         else {
