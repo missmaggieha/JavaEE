@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/TestHandler")
+@WebServlet("/QuestionHandler")
 public class QuestionHandler extends HttpServlet {
     private static String add = "/admin/add-test.jsp";
     private static String edit = "/admin/edit-test.jsp";

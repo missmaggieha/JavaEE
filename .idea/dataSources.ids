@@ -25,13 +25,14 @@
       <index name="FK_MESSAGE_TEST_ID" unique="false" columns="TEST_ID"/>
     </table>
     <table name="QUESTION" schema="" catalog="dps904_161a20" type="TABLE">
-      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="DIFFICULTY" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="EXPLANATION" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="QUESTION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <column name="TYPE" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="TEST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ID"/>
+      <index name="QUESTION_ID_uindex" unique="true" columns="ID"/>
       <index name="FK_QUESTION_TEST_ID" unique="false" columns="TEST_ID"/>
     </table>
     <table name="RESPONSE" schema="" catalog="dps904_161a20" type="TABLE">
