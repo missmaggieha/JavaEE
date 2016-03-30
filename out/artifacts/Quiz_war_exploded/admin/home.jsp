@@ -4,90 +4,144 @@
 <%@ page import="java.util.*" %>
 <%@ page import="model.QuestionDao" %>
 <%@ page import="model.Question" %>
-<html>
+<html id="ng-app" ng-app="WebApp">
 <head>
-    <meta charset="utf-8">
-    <title>Quiz App</title>
-    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
+    <title>{{title}}</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/assets/styles/style.css"/>
 </head>
 <body>
-    <h1>Tests List</h1>
-<%
-    TestDao testDao = new TestDao();
-    List<Test> testList = testDao.getAllTests();
-    Iterator<Test> itr = testList.iterator();
-    Test test = null;
-%>
 
-    <table class="table">
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <%
-                while(itr.hasNext()) {
-                    test = itr.next();
-            %>
-            <td><%= test.getName()  %></td>
-            <td><%= test.getDescription()  %></td>
-            <td>
-                <form method="POST" action="../TestHandler">
-                    <button class="edit">Edit</button>
-                    <input type="hidden" name="action" value="editForm" >
-                    <input type="hidden" name="ID" value="<%= test.getId() %>" >
-                </form>
-            </td>
-            <td>
-                <form method="POST" action="../TestHandler">
-                    <button onclick="if(!confirm('Are you sure you want to remove the test?')) return false;">Remove</button>
-                    <input type="hidden" name="action" value="delete" >
-                    <input type="hidden" name="ID" value="<%= test.getId() %>" >
-                </form>
-            </td>
-        </tr>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/">Quiz App - DPS936</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li><a href="#/">Home</a></li>
+                <li><a href="#/about">About</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div id="pageContent">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th><h1>Tests</h1></th>
+                <th style="width: 10%">
+                    <h1><a href="/admin/add-test.jsp" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a></h1>
+                </th>
+            </tr>
+        </table>
         <%
-            }
+            TestDao testDao = new TestDao();
+            List<Test> testList = testDao.getAllTests();
+            Iterator<Test> itr = testList.iterator();
+            Test test = null;
         %>
-    </table>
-    <a href="/admin/add-test.jsp"><input type="button" value="Add Test" name="add"/></a>
-<br>
-    <%
-        QuestionDao questionDao = new QuestionDao();
-        List<Question> questionList = questionDao.getAllQuestions();
-        Iterator<Question> itr2 = questionList.iterator();
-        Question question = null;
-    %>
-    <h1>Questions List</h1>
-    <table class="table">
-        <tr>
-            <th>Question</th>
-        </tr>
-        <tr>
-            <%
-                while(itr2.hasNext()) {
-                    question = itr2.next();
-            %>
-            <td><%= question.getQuestion()  %></td>
-            <td>
-                <form method="POST" action="../QuestionHandler">
-                    <button class="edit">Edit</button>
-                    <input type="hidden" name="action" value="editForm" >
-                    <input type="hidden" name="ID" value="<%= question.getId() %>" >
-                </form>
-            </td>
-            <td>
-                <form method="POST" action="../QuestionHandler">
-                    <button onclick="if(!confirm('Are you sure you want to remove the question?')) return false;">Remove</button>
-                    <input type="hidden" name="action" value="delete" >
-                    <input type="hidden" name="ID" value="<%= question.getId() %>" >
-                </form>
-            </td>
-        </tr>
+        <div style="height: 200px; overflow: scroll">
+            <table class="table bg-info table-striped">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <%
+                        while(itr.hasNext()) {
+                            test = itr.next();
+                    %>
+                    <td><%= test.getName()  %></td>
+                    <td><%= test.getDescription()  %></td>
+                    <td style="width: 10%">
+                        <form method="POST" action="../TestHandler">
+                            <button class="btn btn-primary btn-sm" tooltip="Edit" ><span class="glyphicon glyphicon-pencil"></span></button>
+                            <input type="hidden" name="action" value="editForm" >
+                            <input type="hidden" name="ID" value="<%= test.getId() %>" >
+                        </form>
+                    </td>
+                    <td style="width: 10%">
+                        <form method="POST" action="../TestHandler">
+                            <button onclick="if(!confirm('Are you sure you want to remove the test?')) return false;" tooltip="Remove" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button>
+                            <input type="hidden" name="action" value="delete" >
+                            <input type="hidden" name="ID" value="<%= test.getId() %>" >
+                        </form>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
+        </div>
         <%
-            }
+            QuestionDao questionDao = new QuestionDao();
+            List<Question> questionList = questionDao.getAllQuestions();
+            Iterator<Question> itr2 = questionList.iterator();
+            Question question = null;
         %>
-    </table>
-    <a href="/admin/add-question.jsp"><input type="button" value="Add Question" name="add"/></a>
+        <table class="table">
+            <tr>
+                <th><h1>Questions</h1></th>
+                <th style="width: 10%">
+                    <h1><a href="/admin/add-question.jsp" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span></a></h1>
+                </th>
+            </tr>
+        </table>
+
+        <div style="height: 200px; overflow: scroll">
+            <table class="table bg-info table-striped">
+                <tr>
+                    <%
+                        while(itr2.hasNext()) {
+                            question = itr2.next();
+                    %>
+                    <td><%= question.getQuestion()  %></td style="width: 80%">
+                    <td style="width: 10%">
+                        <form method="POST" action="../QuestionHandler">
+                            <button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>
+                            <input type="hidden" name="action" value="editForm" >
+                            <input type="hidden" name="ID" value="<%= question.getId() %>" >
+                        </form>
+                    </td>
+                    <td style="width: 10%">
+                        <form method="POST" action="../QuestionHandler">
+                            <button onclick="if(!confirm('Are you sure you want to remove the question?')) return false;" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button>
+                            <input type="hidden" name="action" value="delete" >
+                            <input type="hidden" name="ID" value="<%= question.getId() %>" >
+                        </form>
+                    </td>
+                </tr>
+                <%
+                    }
+                %>
+            </table>
+        </div>
+        <div ng-view></div>
+    </div>
+</div>
+
+<script src="/assets/js/jquery-2.1.4.min.js"></script>
+<script src="/assets/angular/angular.min.js"></script>
+<script src="/assets/angular/angular-route.min.js"></script>
+<script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/assets/js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+
+
+<script src="/app.js"></script>
+<script src="/controllers/homepage.js"></script>
+<script src="/controllers/questions.js"></script>
+
 </body>
 </html>
