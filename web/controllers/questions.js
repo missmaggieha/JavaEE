@@ -1,4 +1,6 @@
-webApp.controller('QuestionsController', ['$scope', '$modal', '$location', 'Post', function($scope, $modal, $location, Post){
+webApp.controller('QuestionsController', ['$scope', '$modal', '$location', function($scope, $modal, $location){
+
+	$scope.title = "Quiz App";
 	$scope.question = {
 		question: '',
 		explanation: '',
@@ -49,12 +51,6 @@ webApp.controller('QuestionsController', ['$scope', '$modal', '$location', 'Post
 	$scope.removeAnswer = function(item) {
 		$scope.question.answers = $scope.question.answers.filter(function(answer){
 			return answer.answer != item.answer;
-		});
-	}
-
-	$scope.addAnswers = function() {
-		Post.save($scope.question, function(resp) {
-			alert(resp.data);
 		});
 	}
 }]);
