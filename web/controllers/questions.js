@@ -13,7 +13,7 @@ webApp.controller('QuestionsController', ['$scope', '$modal', '$location', funct
 
 	$scope.types = [
 		{name: "Checkbox", value:0, html: 'checkbox.html'},
-		{name: "Dropdown", value:1, html: 'dropdown.html'},
+		{name: "Dropdown", value:1, html: 'checkbox.html'},
 		{name: "Multiple Choice", value:2, html: 'checkbox.html'},
 		{name: "Numeric Input", value:3, html: 'numeric.html'},
 		{name: "Text Input", value:4, html: 'text.html'}
@@ -44,6 +44,14 @@ webApp.controller('QuestionsController', ['$scope', '$modal', '$location', funct
 	}
 
 	$scope.addAnswer = function() {
+		if($scope.question.type < 3 && $scope.answerTemp.checked == undefined){
+			$scope.answerTemp.checked = false;
+		}
+		if($scope.question.type == 3 && isNaN($scope.answerTemp.answer) ){
+			$scope.errorMsg = "This is not a number."
+			return;
+
+		}
 		$scope.question.answers.push(Object.assign({},$scope.answerTemp));
 		$scope.answerTemp = {};
 	}
