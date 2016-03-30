@@ -1,3 +1,17 @@
-<input type="checkbox" ng-model="answerTemp.checked">
-<input type="text" name="text" ng-model="answerTemp.answer" ng-enter="addAnswer()">
-<span ng-include="'views/addButton.html'"></span>
+<table>
+    <tr>
+        <td>
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <input type="checkbox" ng-model="answerTemp.checked">
+                </div>
+                <input type="text" class="form-control" name="text" ng-model="answerTemp.answer" ng-enter="addAnswer()" placeholder="Answer">
+            </div>
+        </td>
+        <td style="width: 10%;">
+            <span ng-include="'views/addButton.html'"></span>
+        </td>
+    </tr>
+</table>
+
+
