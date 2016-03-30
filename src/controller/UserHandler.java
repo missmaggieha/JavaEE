@@ -53,6 +53,21 @@ public class UserHandler extends HttpServlet {
             response.sendRedirect(redirect);
         }
 
+        if(action.equalsIgnoreCase("createStudent")) {
+            User user = new User();
+
+            user.setName(request.getParameter("name"));
+            user.setEmail(request.getParameter("email"));
+            user.setPassword(request.getParameter("password"));
+            user.setRole(2);
+
+            dao.addUser(user);
+            redirect = "signIn.jsp";
+            request.setAttribute("users",dao.getAllUsers());
+
+            response.sendRedirect(redirect);
+        }
+
         else if(action.equalsIgnoreCase("delete")){
             String userId = request.getParameter("ID");
             

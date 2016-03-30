@@ -42,3 +42,9 @@ body {
   border-top-right-radius: 0;
 }
 
+IMG.seneca {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+

@@ -1,3 +1,4 @@
+<%@ page import="model.User" %>
 <!DOCTYPE html>
 <head>
    <title>{{title}}</title>
@@ -7,29 +8,44 @@
 </head>
 <body>
 
+<%
+   // Making sure the user is not already logged in
+   User user = (User)session.getAttribute("user");
 
-<nav class="navbar navbar-default">
-   <div class="container">
-      <div class="navbar-header">
-         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-         </button>
-         <a class="navbar-brand" href="#/">Quiz App - DPS936</a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse navbar-right">
-         <ul class="nav navbar-nav">
-            <li><a href="#/">Home</a></li>
-            <li><a href="#/about">About</a></li>
-         </ul>
-      </div><!--/.nav-collapse -->
-   </div>
-</nav>
-<h1>
-   <img class="seneca" src="images/seneca_logo.png" alt="myseneca.ca" />
-</h1>
+   try {
+      int role = user.getRole();
+
+      if(role == 1) {
+         response.sendRedirect("/admin/home.jsp");
+      } else if (role == 2) {
+         response.sendRedirect("/student/home.jsp");
+      }
+   } catch(Exception ex) {
+   }
+%>
+<%--<nav class="navbar navbar-default">--%>
+   <%--<div class="container">--%>
+      <%--<div class="navbar-header">--%>
+         <%--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">--%>
+            <%--<span class="sr-only">Toggle navigation</span>--%>
+            <%--<span class="icon-bar"></span>--%>
+            <%--<span class="icon-bar"></span>--%>
+            <%--<span class="icon-bar"></span>--%>
+         <%--</button>--%>
+         <%--<a class="navbar-brand" href="#/">Quiz App - DPS936</a>--%>
+      <%--</div>--%>
+      <%--<div id="navbar" class="navbar-collapse collapse navbar-right">--%>
+         <%--<ul class="nav navbar-nav">--%>
+            <%--<li><a href="#/">Home</a></li>--%>
+            <%--<li><a href="#/about">About</a></li>--%>
+         <%--</ul>--%>
+      <%--</div><!--/.nav-collapse -->--%>
+   <%--</div>--%>
+<%--</nav>--%>
+<%--<div>--%>
+   <%--<img class="seneca" src="images/seneca_logo.png" alt="Seneca Logo" />--%>
+<%--</div>--%>
+<IMG class="seneca" src="images/seneca_logo.png" alt="Seneca Logo" style="display: block; margin-left: auto; margin-right: auto;"/>
 <%--<p>Type your myseneca.ca email and password.</p>--%>
 <%--<form action="SIS" method="post">--%>
    <%--<label class="pad_top">Email:</label>--%>
@@ -50,14 +66,17 @@
       <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required="" autofocus="">
       <label for="password" class="sr-only">Password</label>
       <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="">
-      <div class="checkbox">
-         <label>
-            <input type="checkbox" value="remember-me"> Remember me
-         </label>
-      </div>
+      <%--<div class="checkbox">--%>
+         <%--<label>--%>
+            <%--<input type="checkbox" value="remember-me"> Remember me--%>
+         <%--</label>--%>
+      <%--</div>--%>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p>Trouble logging in? Click
-         <a href="http://www.senecacollege.ca/" target="pwsWnd">here.</a>
+      <%--<p>Trouble logging in? Click--%>
+         <%--<a href="http://www.senecacollege.ca/" target="pwsWnd">here.</a>--%>
+      <%--</p>--%>
+      <p>Don't have an account? Click
+         <a href="/createAccount.jsp">here.</a>
       </p>
    </form>
 
