@@ -39,6 +39,9 @@ webApp.controller('QuestionsController', ['$scope','$http', '$modal', '$location
 			return false;
 	}
 
+	$scope.setAnswer = function() {
+		$scope.question.answers = getAnswerValues();
+	}
 	$scope.changeType = function () {
 		$scope.question.answers = [];
 		$scope.question.type = Number($scope.question.type)

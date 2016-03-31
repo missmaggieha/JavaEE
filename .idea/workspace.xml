@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea1a0abf-fd0c-466e-ac66-7013a46d29a8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_json_json_20160212.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/AnswerDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/admin/edit-question.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/controller/QuestionHandler.class" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/controller/QuestionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/controller/UserHandler.class" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/controller/UserHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/model/QuestionDao.class" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/model/QuestionDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Quiz/controller/QuestionHandler.class" afterPath="$PROJECT_DIR$/out/production/Quiz/controller/QuestionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Quiz/controller/UserHandler.class" afterPath="$PROJECT_DIR$/out/production/Quiz/controller/UserHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Quiz/model/QuestionDao.class" afterPath="$PROJECT_DIR$/out/production/Quiz/model/QuestionDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/Quiz_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/Quiz_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Quiz.iml" afterPath="$PROJECT_DIR$/Quiz.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/admin/add-test.jsp" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/admin/add-test.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/admin/edit-test.jsp" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/admin/edit-test.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/admin/home.jsp" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/admin/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/signIn.jsp" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/signIn.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/QuestionHandler.java" afterPath="$PROJECT_DIR$/src/controller/QuestionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/QuestionDao.java" afterPath="$PROJECT_DIR$/src/model/QuestionDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/add-question.jsp" afterPath="$PROJECT_DIR$/web/admin/add-question.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/AnswerDao.java" afterPath="$PROJECT_DIR$/src/model/AnswerDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/edit-question.jsp" afterPath="$PROJECT_DIR$/web/admin/edit-question.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/home.jsp" afterPath="$PROJECT_DIR$/web/admin/home.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/views/checkbox.html" afterPath="$PROJECT_DIR$/web/admin/views/checkbox.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/views/dropdown.html" afterPath="$PROJECT_DIR$/web/admin/views/dropdown.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/views/numeric.html" afterPath="$PROJECT_DIR$/web/admin/views/numeric.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/admin/views/text.html" afterPath="$PROJECT_DIR$/web/admin/views/text.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/controllers/questions.js" afterPath="$PROJECT_DIR$/web/controllers/questions.js" />
     </list>
     <ignored path="Quiz.iws" />
@@ -81,22 +69,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="QuestionDao.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/model/QuestionDao.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="48" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
-              <folding>
-                <marker date="1459390654000" expanded="true" signature="441:533" placeholder="INSERT INTO QUESTION... " />
-                <marker date="1459390654000" expanded="true" signature="1124:1157" placeholder="DELETE FROM " />
-                <marker date="1459390654000" expanded="true" signature="1403:1504" placeholder="UPDATE QUEST... " />
-                <marker date="1459390654000" expanded="true" signature="1994:2016" placeholder="SELECT * FRO... QUESTION" />
-                <marker date="1459390654000" expanded="true" signature="2735:2770" placeholder="SELECT * FRO... QUESTION" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="add-question.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/admin/add-question.jsp">
           <provider selected="true" editor-type-id="text-editor">
@@ -107,11 +79,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="questions.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/controllers/questions.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="4.4444447">
+              <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit-question.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/admin/edit-question.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.3333334">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="26" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="QuestionHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/controller/QuestionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
+              <caret line="58" column="35" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,51 +111,70 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Quiz.iml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Quiz.iml">
+      <file leaf-file-name="AnswerDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model/AnswerDao.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-              <folding />
+              <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+              <folding>
+                <element signature="e#3725#3733#0" expanded="true" />
+                <marker date="1459400159000" expanded="true" signature="429:496" placeholder="INSERT INTO ANSWER... " />
+                <marker date="1459400159000" expanded="true" signature="922:953" placeholder="DELETE FROM " />
+                <marker date="1459400159000" expanded="true" signature="1275:1315" placeholder="DELETE FROM " />
+                <marker date="1459400159000" expanded="true" signature="1624:1696" placeholder="UPDATE QUEST... " />
+                <marker date="1459400159000" expanded="true" signature="2194:2214" placeholder="SELECT * FRO... ANSWER" />
+                <marker date="1459400159000" expanded="true" signature="2986:3019" placeholder="SELECT * FRO... QUESTION" />
+                <marker date="1459400159000" expanded="true" signature="3815:3857" placeholder="SELECT * FRO... ANSWER" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="questions.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/controllers/questions.js">
+      <file leaf-file-name="checkbox.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/admin/views/checkbox.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="15.0">
-              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="10" selection-end-column="5" />
+            <state vertical-scroll-proportion="-6.875">
+              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit-test.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/admin/edit-test.jsp">
+      <file leaf-file-name="dropdown.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/admin/views/dropdown.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.8333335">
-              <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+            <state vertical-scroll-proportion="-0.625">
+              <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit-question.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/admin/edit-question.jsp">
+      <file leaf-file-name="numeric.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/admin/views/numeric.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5368171">
-              <caret line="80" column="80" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
+            <state vertical-scroll-proportion="-5.0">
+              <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="text.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/admin/views/text.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.0">
+              <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/admin/home.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="22.5">
-              <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+            <state vertical-scroll-proportion="1.4964371">
+              <caret line="124" column="44" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -192,10 +203,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/schema/User.java" />
-        <option value="$PROJECT_DIR$/src/SignIn_EL_Servlet.java" />
-        <option value="$PROJECT_DIR$/web/signIn-EL.jsp" />
-        <option value="$PROJECT_DIR$/src/main/Main.java" />
         <option value="$PROJECT_DIR$/src/main/UserDB.java" />
         <option value="$PROJECT_DIR$/src/schema/UserDB.java" />
         <option value="$PROJECT_DIR$/src/META-INF/persistence.xml" />
@@ -233,16 +240,20 @@
         <option value="$PROJECT_DIR$/web/app.js" />
         <option value="$PROJECT_DIR$/web/signIn.jsp" />
         <option value="$PROJECT_DIR$/web/assets/styles/style.css" />
-        <option value="$PROJECT_DIR$/web/admin/home.jsp" />
         <option value="$PROJECT_DIR$/web/admin/add-test.jsp" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/model/AnswerDao.java" />
         <option value="$PROJECT_DIR$/src/model/QuestionDao.java" />
         <option value="$PROJECT_DIR$/Quiz.iml" />
         <option value="$PROJECT_DIR$/src/controller/QuestionHandler.java" />
         <option value="$PROJECT_DIR$/web/admin/add-question.jsp" />
-        <option value="$PROJECT_DIR$/web/admin/edit-question.jsp" />
+        <option value="$PROJECT_DIR$/web/admin/views/checkbox.html" />
+        <option value="$PROJECT_DIR$/web/admin/views/dropdown.html" />
+        <option value="$PROJECT_DIR$/web/admin/views/numeric.html" />
+        <option value="$PROJECT_DIR$/web/admin/views/text.html" />
+        <option value="$PROJECT_DIR$/src/model/AnswerDao.java" />
         <option value="$PROJECT_DIR$/web/controllers/questions.js" />
+        <option value="$PROJECT_DIR$/web/admin/edit-question.jsp" />
+        <option value="$PROJECT_DIR$/web/admin/home.jsp" />
       </list>
     </option>
   </component>
@@ -1341,12 +1352,12 @@
       <workItem from="1459358276278" duration="7000" />
       <workItem from="1459358466434" duration="5000" />
       <workItem from="1459362699646" duration="11000" />
-      <workItem from="1459362726584" duration="19850000" />
+      <workItem from="1459362726584" duration="22392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="137609000" />
+    <option name="totallyTimeSpent" value="140151000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1360,12 +1371,12 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41169155" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41169155" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298611" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24087591" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12361111" sideWeight="0.5072464" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16875" sideWeight="0.49275362" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16875" sideWeight="0.49275362" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22916667" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1454,35 +1465,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/admin/views/text.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/admin/views/about.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/views/numeric.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/views/checkbox.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/views/dropdown.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1689,21 +1672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/AnswerDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="31" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
-          <folding>
-            <marker date="1459365338000" expanded="true" signature="429:496" placeholder="INSERT INTO ANSWER... " />
-            <marker date="1459365338000" expanded="true" signature="922:953" placeholder="DELETE FROM " />
-            <marker date="1459365338000" expanded="true" signature="1275:1315" placeholder="DELETE FROM " />
-            <marker date="1459365338000" expanded="true" signature="1624:1696" placeholder="UPDATE QUEST... " />
-            <marker date="1459365338000" expanded="true" signature="2194:2214" placeholder="SELECT * FRO... ANSWER" />
-            <marker date="1459365338000" expanded="true" signature="2986:3019" placeholder="SELECT * FRO... QUESTION" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/encodings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1830,13 +1798,78 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/edit-test.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.8333335">
+          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/views/checkbox.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.875">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/views/dropdown.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/views/numeric.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/views/text.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/QuestionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
+          <caret line="58" column="35" selection-start-line="58" selection-start-column="35" selection-end-line="58" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/AnswerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+          <folding>
+            <element signature="e#3725#3733#0" expanded="true" />
+            <marker date="1459400159000" expanded="true" signature="429:496" placeholder="INSERT INTO ANSWER... " />
+            <marker date="1459400159000" expanded="true" signature="922:953" placeholder="DELETE FROM " />
+            <marker date="1459400159000" expanded="true" signature="1275:1315" placeholder="DELETE FROM " />
+            <marker date="1459400159000" expanded="true" signature="1624:1696" placeholder="UPDATE QUEST... " />
+            <marker date="1459400159000" expanded="true" signature="2194:2214" placeholder="SELECT * FRO... ANSWER" />
+            <marker date="1459400159000" expanded="true" signature="2986:3019" placeholder="SELECT * FRO... QUESTION" />
+            <marker date="1459400159000" expanded="true" signature="3815:3857" placeholder="SELECT * FRO... ANSWER" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/controllers/questions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.4444447">
+          <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1848,34 +1881,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="22.5">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/admin/edit-test.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.8333335">
-          <caret line="23" column="20" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/controllers/questions.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="15.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="10" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/admin/edit-question.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5368171">
-          <caret line="80" column="80" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
+        <state vertical-scroll-proportion="-1.3333334">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="26" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/admin/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4964371">
+          <caret line="124" column="44" selection-start-line="124" selection-start-column="44" selection-end-line="124" selection-end-column="44" />
           <folding />
         </state>
       </provider>

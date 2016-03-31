@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<%@ page import="model.Test" %>
+<%@ page import="model.Answer" %>
+<%@ page import="model.AnswerDao" %>
 <%@ page import="model.Question" %>
 <%@ page import="model.QuestionDao" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.Iterator" %>
 <html id="ng-app" ng-app="WebApp">
 <head>
     <meta charset="utf-8">
@@ -23,12 +26,30 @@
     <script src="/controllers/questions.js"></script>
     <script src="/controllers/test.js"></script>
     <div class="container" ng-controller="QuestionsController">
+        <script>
+        function getAnswerValues() {
+        var localAnswers = [];
+        var tempAnswer={}
         <%
             QuestionDao questionDao = new QuestionDao();
             int questionId = Integer.parseInt((String)request.getAttribute("id"));
             Question question = questionDao.getQuestionById(questionId);
-        %>
+            AnswerDao answerDao = new AnswerDao();
+            ArrayList<Answer> answers = answerDao.getAnswerByQuestionId(questionId);
 
+            for(Iterator<Answer> i = answers.iterator(); i.hasNext();){
+                Answer a = i.next();
+                %>
+            tempAnswer.checked = <%=a.getIs_correct()%> ;
+            tempAnswer.answer = '<%=a.getText()%>' ;
+            localAnswers.push(Object.assign({},tempAnswer));
+            tempAnswer = {};
+                <%
+            }
+        %>
+            return localAnswers;
+        };
+        </script>
         <form method="POST" action="/QuestionHandler" name="add" class="form">
             <input type="hidden" name="action" value="edit" />
             <h1>Add Questions</h1>
@@ -66,13 +87,13 @@
             <div class="form-group">
                 <label>Add Answers</label>
                 <div name="answer">
-                    <div ng-repeat="type in types" ng-include="'views/'+ type.html" ng-show="showAnswer(type.value)"></div>
+                    <div ng-repeat="type in types" ng-include="'/admin/views/'+ type.html" ng-show="showAnswer(type.value)"></div>
                 </div>
             </div>
 
 
-
-            <div ng-repeat="answer in question.answers">
+            <div ng-init="setAnswer()"></div>
+            <div ng-repeat="answer in question.answers" >
                 <p>{{answer.answer}} <a href="#" ng-click="removeAnswer(answer)" class="btn btn-danger btn-sm">X</a></p>
             </div>
             <div class="form-group">

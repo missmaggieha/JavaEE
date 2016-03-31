@@ -137,4 +137,30 @@ public class AnswerDao {
         }
         return answer;
     }
+
+    public ArrayList<Answer> getAnswerByQuestionId(int questionId){
+        ArrayList<Answer> answers = new ArrayList<Answer>();
+        Answer answer = new Answer();
+        try {
+            String sql = "SELECT * FROM ANSWER WHERE QUESTION_ID = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, questionId);
+            ResultSet rs = ps.executeQuery();
+
+
+            if(rs.next()){
+                answer.setIs_correct(rs.getBoolean("is_correct"));
+                answer.setText(rs.getString("text"));
+                answer.setId(rs.getInt("ID"));
+
+                answer.setQuestion(new Question());
+                answer.getQuestion().setId(questionId);
+
+                answers.add(answer);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return answers;
+    }
 }
