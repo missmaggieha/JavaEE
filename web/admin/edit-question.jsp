@@ -11,6 +11,12 @@
     <title>Quiz App</title>
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/assets/styles/style.css"/>
+    <style>
+        .form-controlA {
+            display: inline-block;
+            width: auto;
+        }
+    </style>
 </head>
 <body>
 <%@include  file="navbar.html" %>
@@ -77,14 +83,14 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" ng-init="changeType( <%=question.getType()%>)">
                 <label for="type">Type</label><br>
-                <select class="form-control form-controlA" name="type" id="type" ng-model="question.type" ng-change="changeType()">
+                <select class="form-control form-controlA" name="type" id="type" ng-model="question.type" ng-change="changeType()" ng-selected="question.type">
                     <option ng-repeat="type in types" value="{{type.value}}">{{type.name}}</option>
                 </select>
 
             </div>
-            <div class="form-group">
+            <div class="form-group" >
                 <label>Add Answers</label>
                 <div name="answer">
                     <div ng-repeat="type in types" ng-include="'/admin/views/'+ type.html" ng-show="showAnswer(type.value)"></div>
@@ -93,8 +99,19 @@
 
 
             <div ng-init="setAnswer()"></div>
-            <div ng-repeat="answer in question.answers" >
-                <p>{{answer.answer}} <a href="#" ng-click="removeAnswer(answer)" class="btn btn-danger btn-sm">X</a></p>
+
+            <div class="panel panel-default form-controlA">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Answers</h3>
+                </div>
+                <div class="panel-body">
+                    <div ng-repeat="answer in question.answers" >
+                        <button class="btn btn-primary" type="button">
+                            <span class="badge">{{answer.checked}}</span>&nbsp;{{answer.answer}}
+                        </button>
+                        <a href="#" ng-click="removeAnswer(answer)" class="btn btn-danger btn-sm">X</a>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <div>
