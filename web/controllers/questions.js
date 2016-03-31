@@ -1,4 +1,4 @@
-webApp.controller('QuestionsController', ['$scope', '$modal', '$location', function($scope, $modal, $location){
+webApp.controller('QuestionsController', ['$scope','$http', '$modal', '$location', function($scope,$http,  $modal, $location){
 
 	$scope.title = "Quiz App";
 	$scope.question = {
@@ -6,10 +6,11 @@ webApp.controller('QuestionsController', ['$scope', '$modal', '$location', funct
 		explanation: '',
 		difficulty: 0,
 		type: 0,
-		answers: []
+		answers: [],
+		answersString: []
 	}
 
-	$scope.answerTemp = {};
+	$scope.answerTemp = {checked: undefined, answer: ''};
 
 	$scope.types = [
 		{name: "Checkbox", value:0, html: 'checkbox.html'},
@@ -47,12 +48,20 @@ webApp.controller('QuestionsController', ['$scope', '$modal', '$location', funct
 		if($scope.question.type < 3 && $scope.answerTemp.checked == undefined){
 			$scope.answerTemp.checked = false;
 		}
+		else if ($scope.answerTemp.type >= 3) {
+			$scope.answerTemp.checked = true;
+		}
 		if($scope.question.type == 3 && isNaN($scope.answerTemp.answer) ){
-			$scope.errorMsg = "This is not a number."
+			$scope.errorMsg = "This is not a number.";
 			return;
 
 		}
 		$scope.question.answers.push(Object.assign({},$scope.answerTemp));
+		var stringAnswer = JSON.stringify(JSON.stringify($scope.answerTemp));
+		//$scope.question.answersString.push(stringAnswer.slice(1, stringAnswer.length - 1));
+		$scope.question.answersString.push(JSON.stringify($scope.answerTemp));
+
+
 		$scope.answerTemp = {};
 	}
 
@@ -61,4 +70,30 @@ webApp.controller('QuestionsController', ['$scope', '$modal', '$location', funct
 			return answer.answer != item.answer;
 		});
 	}
+	$scope.addQuestion = function(question) {
+		var data = $.param({
+			action: 'add',
+			question: question.question,
+			explanation: question.explanation,
+			difficulty: question.difficulty.toString(),
+			type: question.type.toString(),
+			"answers[]": question.answersString
+		});
+
+		$http({
+			method: 'POST',
+			url: '/QuestionHandler',
+			data: data,
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
+			}}).then(function(result) {
+			console.log(result);
+			window.location.href = "/admin/home.jsp";
+		}, function(error) {
+			console.log(error);
+		});
+
+
+	};
+
 }]);

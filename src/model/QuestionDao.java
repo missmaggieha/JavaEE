@@ -1,5 +1,6 @@
 package model;
 
+import com.mysql.jdbc.Statement;
 import jdbc.DBConnection;
 
 import java.sql.Connection;
@@ -17,23 +18,30 @@ public class QuestionDao {
 		conn = DBConnection.getConnection();
 	}
 
-	public void addQuestion(Question question){
+	public int addQuestion(Question question){
 		try {
 			String sql = "INSERT INTO QUESTION(DIFFICULTY, EXPLANATION, QUESTION, TYPE, TEST_ID)" + "VALUES(?,?,?,?,?)";
 
-			PreparedStatement ps = conn.prepareStatement(sql);
+			PreparedStatement ps = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
 			ps.setInt(1,question.getDifficulty());
 			ps.setString(2,question.getExplanation());
 			ps.setString(3,question.getQuestion());
 			ps.setInt(4, question.getType());
-			ps.setInt(5, question.getTest().getId());
+			ps.setInt(5, 0);
 
 			ps.executeUpdate();
+			int id = -1;
+			ResultSet rs = ps.getGeneratedKeys();
+			if (rs != null && rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return -1;
 	}
 
 	public void removeQuestion(int questionId){

@@ -12,6 +12,7 @@
           <element id="library" level="project" name="mysql-connector-java-5.1.38-bin" />
           <element id="library" level="project" name="org.eclipse.persistence:eclipselink:2.6.1" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/com.mysql.jdbc_5.1.5.jar" />
+          <element id="library" level="application" name="json-20160212" />
         </element>
       </element>
     </root>

@@ -1,129 +1,56 @@
 <!DOCTYPE html>
-<%@ page import="model.Question" %>
-<%@ page import="model.QuestionDao" %>
-<%@ page import="java.util.*" %>
-<%@ page import="model.TestDao" %>
 <%@ page import="model.Test" %>
+<%@ page import="model.TestDao" %>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Quiz App</title>
-    <link rel="stylesheet" href="styles/main.css" type="text/css"/>    
+	<link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/assets/styles/style.css"/>
 </head>
-    <h1>Edit Test</h1>
-
+<body>
+<%@include  file="navbar.html" %>
+<div id="pageContent">
+	<div class="container">
 <%
     TestDao testDao = new TestDao();
     int testId = Integer.parseInt((String)request.getAttribute("id"));
     Test test = testDao.getTestById(testId);
-    
-    // Need to create an array of answers
 %>
     <form method="POST" action="TestHandler" name="edit">
         <input type="hidden" name="action" value="edit" />
         <input type="hidden" name="id" value="<%= test.getId() %>" />
-        <table class="tableModifier">
-			<tr>
-				<td class="l">Test name : </td>
-				<td class="r"><input type="text" name="name" value="<%= test.getName() %>"/></td>
-			</tr>
-			<tr>
-				<td class="l">Test description : </td>
-				<td class="r"><input type="text" name="description" value="<%= test.getDescription() %>"/></td>
-			</tr>
+        <table class="table">
+			<%--<tr>--%>
+				<%--<td class="l">Test name : </td>--%>
+				<%--<td class="r"><input type="text" name="name" value="<%= test.getName() %>"/></td>--%>
+			<%--</tr>--%>
+			<%--<tr>--%>
+				<%--<td class="l">Test description : </td>--%>
+				<%--<td class="r"><input type="text" name="description" value="<%= test.getDescription() %>"/></td>--%>
+			<%--</tr>--%>
             <%--<tr>--%>
-                <%--<td class="l">Question text : </td>--%>
-                <%--<td class="r"><input type="text" name="question" value="<%= question.getQuestion() %>"/></td>--%>
+                <%--<td class="l"><input type="submit" value="update" /></td>--%>
+                <%--<td class="r"><a href="/admin/home.jsp"><input type="button" value="cancel" name="cancel"/></a></td>--%>
             <%--</tr>--%>
-            <%--<tr>--%>
-                <%--<td class="l">Explanation : </td>--%>
-                <%--<td class="r"><input type="text" name="explanation" value="<%= question.getExplanation() %>"/></td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-            	<%--<td class="l">Difficulty : </td>--%>
-            	<%--<td class="r">--%>
-            		<%--<input type="radio" name="difficulty" value="1" <% if(question.getDifficulty() == 1){ System.out.print("checked"); } %>>Easy</input>--%>
-					<%--<br><input type="radio" name="difficulty" value="2" <% if(question.getDifficulty() == 2){ System.out.print("checked"); } %>>Medium</input>--%>
-					<%--<br><input type="radio" name="difficulty" value="3" <% if(question.getDifficulty() == 3){ System.out.print("checked"); } %>>Hard</input>--%>
-            	<%--</td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-            	<%--<td class="l">Question Type : </td>--%>
-            	<%--<td class="r">--%>
-            		<%--<select name="type">--%>
-						<%--<option value="1" <% if(question.getType() == 1){ System.out.print("selected"); } %>>Multiple Choice, Multiple Answer (Checkbox)</option>--%>
-						<%--<option value="2" <% if(question.getType() == 2){ System.out.print("selected"); } %>>Drop Down </option>--%>
-						<%--<option value="3" <% if(question.getType() == 3){ System.out.print("selected"); } %>>Multiple Choice, One Answer (Radio)</option>--%>
-						<%--<option value="4" <% if(question.getType() == 4){ System.out.print("selected"); } %>>Numeric Input</option>--%>
-						<%--<option value="5" <% if(question.getType() == 5){ System.out.print("selected"); } %>>Text Input</option>--%>
-					<%--</select>--%>
-            	<%--</td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-            	<%--<td class="l">FOR TESTING PURPOSES, pick one below</td>--%>
-            	<%--<td class="r"></td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-            	<%--<td class="l">1) Answers for Multiple Choice, <br>Multiple Answer : </td>--%>
-            	<%--<td class="r">--%>
-            		<%--<input type="checkbox" name="is_correct1" <% if(answer[0].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text1" value="<% answer[0].getText() %>"/>--%>
-					<%--<br>--%>
-					<%--<input type="checkbox" name="is_correct2" <% if(answer[1].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text2" value="<% answer[1].getText() %>"/>--%>
-					<%--<br>--%>
-					<%--<input type="checkbox" name="is_correct3" <% if(answer[2].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text3" value="<% answer[2].getText() %>"/>--%>
-					<%--<br>--%>
-					<%--<input type="checkbox" name="is_correct4" <% if(answer[3].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text4" value="<% answer[3].getText() %>"/>--%>
-					<%--<br>--%>
-            	<%--</td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-            	<%--<td class="l">Answers for Dropdown</td>--%>
-            	<%--<td class="r">--%>
-            		<%--<br><input type="radio" name="dropdownAnswer" value="is_correct1" <% if(answer[0].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text1" value="<% answer[0].getText() %>"/>--%>
-					<%--<br><input type="radio" name="dropdownAnswer" value="is_correct2" <% if(answer[1].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text2" value="<% answer[1].getText() %>"/>--%>
-					<%--<br><input type="radio" name="dropdownAnswer" value="is_correct3" <% if(answer[2].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text3" value="<% answer[2].getText() %>"/>--%>
-					<%--<br><input type="radio" name="dropdownAnswer" value="is_correct4" <% if(answer[3].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text4" value="<% answer[3].getText() %>"/>--%>
-            	<%--</td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-            	<%--<td class="l">Answers for Multiple Choice, <br>One Answer</td>--%>
-            	<%--<td class="r">--%>
-            		<%--<br><input type="radio" name="radioAnswer" value="is_correct1" <% if(answer[0].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text1" value="<% answer[0].getText() %>"/>--%>
-					<%--<br><input type="radio" name="radioAnswer" value="is_correct2" <% if(answer[1].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text2" value="<% answer[1].getText() %>"/>--%>
-					<%--<br><input type="radio" name="radioAnswer" value="is_correct3" <% if(answer[2].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text3" value="<% answer[2].getText() %>"/>--%>
-					<%--<br><input type="radio" name="radioAnswer" value="is_correct4" <% if(answer[3].getIsCorrect()){ return "checked" } %>/>--%>
-					<%--<input type="text" name="text4" value="<% answer[3].getText() %>"/>--%>
-            	<%--</td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-            	<%--<td class="l">Answer for numeric input</td>--%>
-            	<%--<td class="r">--%>
-            		<%--<input type="hidden" name="is_correct1" value="true"/>--%>
-            		<%--<input type="text" name="text1" value="<% answer[0].getText() %>"/>--%>
-            	<%--</td>--%>
-            <%--</tr>--%>
-            <%--<tr>--%>
-            	<%--<td class="l">Answer for text input</td>--%>
-            	<%--<td class="r">--%>
-            		<%--<input type="hidden" name="is_correct1" value="true"/>--%>
-            		<%--<input type="text" name="text1" value="<% answer[0].getText() %>"/>--%>
-            	<%--</td>--%>
-            <%--</tr>--%>
-            <tr>
-                <td class="l"><input type="submit" value="update" /></td>
-                <td class="r"><a href="/admin/home.jsp"><input type="button" value="cancel" name="cancel"/></a></td>
-            </tr>
+			<div class="form-group">
+				<label for="name" class="col-sm-2 control-label">Test name</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="name" name="name" placeholder="Enter test name" value="<%= test.getName() %>">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="description" class="col-sm-2 control-label">Description</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="description" name="description" placeholder="Enter description" value="<%= test.getDescription() %>">
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-success">Update</button>
+					<a href="/admin/home.jsp" class="btn btn-default">Cancel</a>
+				</div>
+			</div>
         </table>
     </form>
 </body>

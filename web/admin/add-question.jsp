@@ -67,7 +67,7 @@
                 <label >Difficulty</label>
                 <div class="checkbox" ng-repeat="item in difficulty">
                     <label  for="difficulty">
-                        <input type="checkbox" name="difficulty" value="item.name" ng-model="item.checked" ng-click="difficultySelect($index, difficulty)">
+                        <input type="checkbox" name="difficulty" value="{{item.name}}" ng-model="item.checked" ng-click="difficultySelect($index, difficulty)">
                         {{item.name}}
                     </label>
                 </div>
@@ -94,12 +94,10 @@
             </div>
             <div class="form-group">
                 <div>
-                    <button class="btn btn-success" ng-click="addAnswers()" tooltip="Super easy!" type="submit" class="btn btn-success">Add</button>
+                    <a class="btn btn-success" ng-click="addQuestion(question)" tooltip="Super easy!" class="btn btn-success">Add</a>
                     <a href="/admin/home.jsp" class="btn btn-default">Cancel</a>
                 </div>
             </div>
-            <h1>{{question}}</h1>
-
         </form>
     </div>
 </div>
