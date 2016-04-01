@@ -1,9 +1,5 @@
 package controller;
 
-/**
- * Created by david on 24/03/16.
- */
-
 import model.User;
 import model.UserDao;
 
