@@ -23,26 +23,7 @@
     </style>
 </head>
 <body>
-
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#/">Angular Bootstrap Boilerplate</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse navbar-right">
-            <ul class="nav navbar-nav">
-                <li><a href="#/">Home</a></li>
-                <li><a href="#/about">About</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
-    </div>
-</nav>
+<%@include  file="navbar.html" %>
 
 <div id="pageContent">
     <div class="container" ng-controller="QuestionsController">
@@ -89,8 +70,18 @@
 
 
 
-            <div ng-repeat="answer in question.answers">
-                <p>{{answer.answer}} <a href="#" ng-click="removeAnswer(answer)" class="btn btn-danger btn-sm">X</a></p>
+            <div class="panel panel-default form-controlA">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Answers</h3>
+                </div>
+                <div class="panel-body">
+                    <div ng-repeat="answer in question.answers" >
+                        <button class="btn btn-primary" type="button">
+                            <span class="badge">{{answer.checked}}</span>&nbsp;{{answer.answer}}
+                        </button>
+                        <a href="#" ng-click="removeAnswer(answer)" class="btn btn-danger btn-sm">X</a>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <div>

@@ -6,7 +6,7 @@
 <%@ page import="model.Question" %>
 <html id="ng-app" ng-app="WebApp">
 <head>
-    <title>{{title}}</title>
+    <title>Quiz App</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/assets/styles/style.css"/>
