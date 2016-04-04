@@ -140,7 +140,7 @@ public class AnswerDao {
 
     public ArrayList<Answer> getAnswerByQuestionId(int questionId){
         ArrayList<Answer> answers = new ArrayList<Answer>();
-        Answer answer = new Answer();
+
         try {
             String sql = "SELECT * FROM ANSWER WHERE QUESTION_ID = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -148,7 +148,8 @@ public class AnswerDao {
             ResultSet rs = ps.executeQuery();
 
 
-            if(rs.next()){
+            while(rs.next()){
+                Answer answer = new Answer();
                 answer.setIs_correct(rs.getBoolean("is_correct"));
                 answer.setText(rs.getString("text"));
                 answer.setId(rs.getInt("ID"));
