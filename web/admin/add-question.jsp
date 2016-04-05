@@ -56,10 +56,7 @@
 
             <div class="form-group">
                 <label for="type">Type</label><br>
-                    <select class="form-control form-controlA" name="type" id="type" ng-model="question.type" ng-change="changeType()">
-                        <option ng-repeat="type in types" value="{{type.value}}">{{type.name}}</option>
-                    </select>
-
+                <select class="form-control form-controlA" ng-model="selectedType" ng-options="t as t.name for t in types" ng-change="changeType()"></select>
             </div>
             <div class="form-group">
                 <label>Add Answers</label>

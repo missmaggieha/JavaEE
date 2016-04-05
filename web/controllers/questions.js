@@ -12,6 +12,8 @@ webApp.controller('QuestionsController', ['$scope','$http', '$modal', '$location
 
 	$scope.answerTemp = {checked: undefined, answer: ''};
 
+	$scope.selectedType = 0;
+
 	$scope.types = [
 		{name: "Checkbox", value:0, html: 'checkbox.html'},
 		{name: "Dropdown", value:1, html: 'checkbox.html'},
@@ -19,6 +21,12 @@ webApp.controller('QuestionsController', ['$scope','$http', '$modal', '$location
 		{name: "Numeric Input", value:3, html: 'numeric.html'},
 		{name: "Text Input", value:4, html: 'text.html'}
 	];
+
+	$scope.getTypeName = function(value){
+		return $scope.types.filter(function(type){
+			return type.value == value;
+		})
+	}
 
 	$scope.difficulty = [
 		{name: "Easy", value:0, checked: true},
@@ -47,16 +55,23 @@ webApp.controller('QuestionsController', ['$scope','$http', '$modal', '$location
 		if(value)
 			$scope.question.type = Number(value);
 		else
-			$scope.question.type = Number($scope.question.type);
+			$scope.question.type = Number($scope.selectedType.value);
 
 
+	}
+
+	$scope.isSelected = function(type) {
+		if(Number(type) == $scope.question.type)
+			return true;
+		else
+			return false;
 	}
 
 	$scope.addAnswer = function() {
 		if($scope.question.type < 3 && $scope.answerTemp.checked == undefined){
 			$scope.answerTemp.checked = false;
 		}
-		else if ($scope.answerTemp.type >= 3) {
+		else if ($scope.question.type >= 3) {
 			$scope.answerTemp.checked = true;
 		}
 		if($scope.question.type == 3 && isNaN($scope.answerTemp.answer) ){
