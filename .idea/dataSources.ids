@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="DPS904_Zenit" uuid="52144761-dd76-4801-84a4-642ea30897cb">
-    <database-info product="MySQL" version="5.0.24-standard-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.0.24-standard-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.29 ( Revision: alexander.soklakov@oracle.com-20140120140810-s44574olh90i6i4l )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
     <schema name="" catalog="dps904_161a20"/>
     <table name="ANSWER" schema="" catalog="dps904_161a20" type="TABLE">
-      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="IS_CORRECT" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
       <column name="TEXT" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="QUESTION_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ID"/>
+      <index name="ANSWER_ID_uindex" unique="true" columns="ID"/>
       <index name="FK_ANSWER_QUESTION_ID" unique="false" columns="QUESTION_ID"/>
     </table>
     <table name="MESSAGE" schema="" catalog="dps904_161a20" type="TABLE">
-      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="MAX" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="MESSAGE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="MIN" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="TEST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="ID"/>
+      <index name="MESSAGE_ID_uindex" unique="true" columns="ID"/>
       <index name="FK_MESSAGE_TEST_ID" unique="false" columns="TEST_ID"/>
     </table>
     <table name="QUESTION" schema="" catalog="dps904_161a20" type="TABLE">
@@ -46,7 +48,7 @@
       <index name="FK_RESPONSE_USER_ID" unique="false" columns="USER_ID"/>
     </table>
     <table name="RESPONSE_DETAILS" schema="" catalog="dps904_161a20" type="TABLE">
-      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="ANSWER_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="QUESTION_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="RESPONSE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -73,7 +75,7 @@
       <column name="MESSAGE" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="PASSWORD" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
-      <column name="ROLE" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ROLE" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="Mg=="/>
       <primary-key name="PRIMARY" columns="ID"/>
       <index name="EMAIL" unique="true" columns="EMAIL"/>
       <index name="USER_ID_uindex" unique="true" columns="ID"/>
