@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1226937577">
+  <component name="DataSourceManagerImpl" format="xml" hash="477818579">
     <data-source source="LOCAL" name="DPS904_Zenit" uuid="52144761-dd76-4801-84a4-642ea30897cb">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
