@@ -17,7 +17,7 @@
 <label for="type">Type:</label>
 <br/>
 <select name="type" id="type" ng-model="question.type" ng-change="changeType()">
-	<option ng-repeat="type in types" value="{{type.value}}">{{type.name}}</option>
+	<option ng-repeat="type in types" value="{{type.value}}" ng-selected="isSelected(type)">{{type.name}}</option>
 </select>
 <br/>
 <div name="answer">

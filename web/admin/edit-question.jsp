@@ -85,9 +85,7 @@
 
             <div class="form-group" ng-init="changeType( <%=question.getType()%>)">
                 <label for="type">Type</label><br>
-                <select class="form-control form-controlA" name="type" id="type" ng-model="question.type" ng-change="changeType()" ng-selected="question.type">
-                    <option ng-repeat="type in types" value="{{type.value}}">{{type.name}}</option>
-                </select>
+                <p name="type">{{getTypeName(<%=question.getType()%>)[0].name}}</p>
 
             </div>
             <div class="form-group" >
