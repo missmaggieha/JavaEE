@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<%@ page import="model.Test" %>
-<%@ page import="model.TestDao" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Iterator" %>
+<%@ page import="model.*" %>
 <html>
 <head>
     <meta charset="utf-8">
@@ -20,29 +21,101 @@
 		<h1><%= test.getName() %>
 			<br><small><%= test.getDescription() %></small>
 		</h1>
-    <%--<form method="POST" action="TestHandler" name="edit">--%>
-        <%--<input type="hidden" name="action" value="edit" />--%>
-        <%--<input type="hidden" name="id" value="<%= test.getId() %>" />--%>
-        <%--<table class="table">--%>
-			<%--<div class="form-group">--%>
-				<%--<label for="name" class="col-sm-2 control-label">Test name</label>--%>
-				<%--<div class="col-sm-10">--%>
-					<%--<input type="text" class="form-control" id="name" name="name" placeholder="Enter test name" value="<%= test.getName() %>">--%>
-				<%--</div>--%>
-			<%--</div>--%>
-			<%--<div class="form-group">--%>
-				<%--<label for="description" class="col-sm-2 control-label">Description</label>--%>
-				<%--<div class="col-sm-10">--%>
-					<%--<input type="text" class="form-control" id="description" name="description" placeholder="Enter description" value="<%= test.getDescription() %>">--%>
-				<%--</div>--%>
-			<%--</div>--%>
-			<%--<div class="form-group">--%>
-				<%--<div class="col-sm-offset-2 col-sm-10">--%>
-					<%--<button type="submit" class="btn btn-success">Update</button>--%>
-					<%--<a href="/student/home.jsp" class="btn btn-default">Cancel</a>--%>
-				<%--</div>--%>
-			<%--</div>--%>
-        <%--</table>--%>
-    <%--</form>--%>
+		<%
+            QuestionDao questionDao = new QuestionDao();
+            List<Question> questionList = questionDao.getQuestionsByTestId(test.getId());
+            Iterator<Question> itr2 = questionList.iterator();
+            Question question = null;
+        %>
+	<h3>Questions:</h3>
+	<div>
+		<form method="POST" action="TestHandler" name="submit">
+		<input type="hidden" name="action" value="submit" />
+		<input type="hidden" name="id" value="<%= test.getId() %>" />
+		<table class="table bg-info table-striped">
+			<tr>
+				<%
+					while(itr2.hasNext()) {
+						question = itr2.next();
+
+						AnswerDao answerDao = new AnswerDao();
+						List<Answer> answerList = answerDao.getAnswerByQuestionId(question.getId());
+						Iterator<Answer> itr3 = answerList.iterator();
+						Answer answer = null;
+
+						if(answerList.size() > 0) {
+				%>
+				<td>
+					<h4><%= question.getQuestion() %>
+						<br><small><%= question.getExplanation() %></small>
+					</h4>
+					<%
+						if(question.getType() == 1 || question.getType() == 3) {
+					%>
+					<ol>
+					<%
+						} else if(question.getType() == 2) {
+					%>
+					<select name="<%= question.getId() %>">
+					<%
+						}
+					%>
+						<%
+							while(itr3.hasNext()) {
+								answer = itr3.next();
+
+								// multiple answers
+								if(question.getType() == 1)
+								{
+						%>
+								<li><input type="checkbox" name="<%= question.getId() %>" value="<%= answer.getId() %>"> <%= answer.getText() %></li>
+						<%
+								// dropdown
+								} else if(question.getType() == 2) {
+						%>
+								<option value="<%= answer.getId() %>"><%= answer.getText() %></option>
+						<%
+								// multiple choice
+								} else if(question.getType() == 3) {
+						%>
+								<li><input type="radio" name="<%= question.getId() %>" value="<%= answer.getId() %>"> <%= answer.getText() %></li>
+						<%
+								// number input
+								} else if(question.getType() == 4) {
+						%>
+								<input type="number" name="<%= question.getId() %>">
+						<%
+								// text input
+								} else if(question.getType() == 5) {
+						%>
+								<input type="text" name="<%= question.getId() %>">
+						<%
+								}
+							}
+						%>
+					<%
+						if(question.getType() == 1 || question.getType() == 3) {
+					%>
+					</ol>
+					<%
+						} else if(question.getType() == 2) {
+					%>
+					</select>
+					<%
+						}
+					%>
+				</td>
+				<%
+					}
+				%>
+			</tr>
+			<%
+				}
+			%>
+		</table>
+		<button type="submit" class="btn btn-success">Submit test</button>
+		<a href="/student/home.jsp" class="btn btn-default">Cancel</a>
+		</form>
+	</div>
 </body>
 </html>

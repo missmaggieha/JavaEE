@@ -136,4 +136,35 @@ public class QuestionDao {
 		}
 		return question;
 	}
+
+	public List getQuestionsByTestId(int testId){
+
+		List questions = new ArrayList();
+		try {
+			String sql = "SELECT * FROM QUESTION WHERE ID IN (SELECT QUESTION_ID FROM TEST_QUESTION WHERE TEST_ID = ?)";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, testId);
+			ResultSet rs = ps.executeQuery();
+
+			while(rs.next()){
+
+				Question question = new Question();
+
+				question.setDifficulty(rs.getInt("difficulty"));
+				question.setExplanation(rs.getString("explanation"));
+				question.setQuestion(rs.getString("question"));
+				question.setId(rs.getInt("ID"));
+				question.setType(rs.getInt("type"));
+
+				question.setTest(new Test());
+				question.getTest().setId(rs.getInt("test_id"));
+
+				questions.add(question);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return questions;
+	}
 }

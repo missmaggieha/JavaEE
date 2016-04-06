@@ -4,9 +4,9 @@ package controller;
  * Created by david on 24/03/16.
  */
 
-import model.Test;
-import model.TestDao;
+import model.*;
 
+import javax.print.DocFlavor;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,13 +14,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
 
 @WebServlet("/TestHandler")
 public class TestHandler extends HttpServlet {
-    private static String add = "/admin/add-test.jsp";
     private static String edit = "/admin/edit-test.jsp";
     private static String list = "/admin/home.jsp";
     private static String studentView = "/student/view-test.jsp";
+    private static String studentHome = "/student/home.jsp";
 
     private TestDao dao;
     public TestHandler() {
@@ -90,6 +92,50 @@ public class TestHandler extends HttpServlet {
 
             RequestDispatcher rd = request.getRequestDispatcher(redirect);
             rd.forward(request, response);
+        }
+
+        else if(action.equalsIgnoreCase("submit")){
+            int correntAnsCounter = 0;
+
+            QuestionDao questionDao = new QuestionDao();
+            List<Question> questionList = questionDao.getQuestionsByTestId(Integer.parseInt(request.getParameter("id")));
+            Iterator<Question> itr = questionList.iterator();
+            Question question = null;
+
+            while(itr.hasNext()) {
+                question = itr.next();
+                AnswerDao answerDao = new AnswerDao();
+                List<Answer> answerList = answerDao.getAnswerByQuestionId(question.getId());
+                Iterator<Answer> itr2 = answerList.iterator();
+                Answer answer = null;
+
+                if (answerList.size() > 0) {
+                    while(itr2.hasNext()) {
+                        answer = itr2.next();
+
+                        try {
+                            if (question.getType() == 4 || question.getType() == 5) {
+                                String chosenAnswer = request.getParameter(String.valueOf(question.getId()));
+
+                                if (chosenAnswer.equalsIgnoreCase(answer.getText())) {
+                                    correntAnsCounter++;
+                                }
+                            } else {
+                                int chosenAnswerId = Integer.parseInt(request.getParameter(String.valueOf(question.getId())));
+
+                                if (answer.getIs_correct() && chosenAnswerId == answer.getId()) {
+                                    correntAnsCounter++;
+                                }
+                            }
+                        } catch (Exception e) {
+                        }
+                    }
+                }
+            }
+            System.out.println(correntAnsCounter);
+
+            redirect = studentHome;
+            response.sendRedirect(redirect);
         }
 
         else {
