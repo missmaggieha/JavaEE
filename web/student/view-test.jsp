@@ -61,6 +61,8 @@
 						}
 					%>
 						<%
+							int currentAnswer = 0;
+
 							while(itr3.hasNext()) {
 								answer = itr3.next();
 
@@ -68,7 +70,7 @@
 								if(question.getType() == 1)
 								{
 						%>
-								<li><input type="checkbox" name="<%= question.getId() %>" value="<%= answer.getId() %>"> <%= answer.getText() %></li>
+								<li><input type="checkbox" name="<%= question.getId() + currentAnswer %>" value="<%= answer.getId() %>"> <%= answer.getText() %></li>
 						<%
 								// dropdown
 								} else if(question.getType() == 2) {
@@ -91,6 +93,8 @@
 								<input type="text" name="<%= question.getId() %>">
 						<%
 								}
+
+								currentAnswer++;
 							}
 						%>
 					<%

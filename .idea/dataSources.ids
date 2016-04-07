@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="DPS904_Zenit" uuid="52144761-dd76-4801-84a4-642ea30897cb">
-    <database-info product="MySQL" version="5.0.24-standard-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.29 ( Revision: alexander.soklakov@oracle.com-20140120140810-s44574olh90i6i4l )">
+    <database-info product="MySQL" version="5.0.24-standard-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -38,7 +38,7 @@
       <index name="FK_QUESTION_TEST_ID" unique="false" columns="TEST_ID"/>
     </table>
     <table name="RESPONSE" schema="" catalog="dps904_161a20" type="TABLE">
-      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="DATE_SUBMITTED" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
       <column name="SCORE" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="TEST_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -68,6 +68,15 @@
       <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
       <primary-key name="PRIMARY" columns="ID"/>
       <index name="TEST_ID_uindex" unique="true" columns="ID"/>
+    </table>
+    <table name="TEST_QUESTION" schema="" catalog="dps904_161a20" type="TABLE">
+      <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="TEST_ID" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="QUESTION_ID" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="TEST_QUESTION_ID_uindex" unique="true" columns="ID"/>
+      <index name="QUESTION_ID" unique="false" columns="QUESTION_ID"/>
+      <index name="TEST_ID" unique="false" columns="TEST_ID"/>
     </table>
     <table name="USER" schema="" catalog="dps904_161a20" type="TABLE">
       <column name="ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>

@@ -95,7 +95,8 @@ public class TestHandler extends HttpServlet {
         }
 
         else if(action.equalsIgnoreCase("submit")){
-            int correntAnsCounter = 0;
+            int correctAnsCounter = 0;
+            int userId = 102;
 
             QuestionDao questionDao = new QuestionDao();
             List<Question> questionList = questionDao.getQuestionsByTestId(Integer.parseInt(request.getParameter("id")));
@@ -110,29 +111,60 @@ public class TestHandler extends HttpServlet {
                 Answer answer = null;
 
                 if (answerList.size() > 0) {
+                    int possibleAnswers = 0;
+                    int currentAnswer = 0;
+
                     while(itr2.hasNext()) {
                         answer = itr2.next();
 
                         try {
-                            if (question.getType() == 4 || question.getType() == 5) {
+                            if(question.getType() == 1) {
+
+                                if(answer.getIs_correct()) {
+                                    possibleAnswers++;
+
+                                    int chosenAnswerId = Integer.parseInt(request.getParameter(String.valueOf(question.getId() + currentAnswer)));
+
+                                    if(chosenAnswerId == answer.getId()) {
+                                        possibleAnswers--;
+                                    }
+                                }
+
+                                else {
+                                    int chosenAnswerId = Integer.parseInt(request.getParameter(String.valueOf(question.getId() + currentAnswer)));
+
+                                    if(chosenAnswerId == answer.getId()) {
+                                        possibleAnswers = answerList.size();
+                                    }
+                                }
+                            }
+
+                            else if (question.getType() == 4 || question.getType() == 5) {
                                 String chosenAnswer = request.getParameter(String.valueOf(question.getId()));
 
                                 if (chosenAnswer.equalsIgnoreCase(answer.getText())) {
-                                    correntAnsCounter++;
+                                    correctAnsCounter++;
                                 }
                             } else {
                                 int chosenAnswerId = Integer.parseInt(request.getParameter(String.valueOf(question.getId())));
 
                                 if (answer.getIs_correct() && chosenAnswerId == answer.getId()) {
-                                    correntAnsCounter++;
+                                    correctAnsCounter++;
                                 }
                             }
-                        } catch (Exception e) {
-                        }
+                        } catch (Exception e) {}
+
+                        currentAnswer++;
+                    }
+
+                    if(question.getType() == 1 && possibleAnswers == 0) {
+                        correctAnsCounter++;
                     }
                 }
             }
-            System.out.println(correntAnsCounter);
+
+            //saving student score in the database
+            new TestDao().saveTestResult(Integer.parseInt(request.getParameter("id")),userId,correctAnsCounter);
 
             redirect = studentHome;
             response.sendRedirect(redirect);

@@ -12,11 +12,14 @@
 <%
     // Making sure the student user is logged in
     User user = (User)session.getAttribute("user");
+    int userId = 0;
 
     try {
         if(user.getRole() != 2) {
             response.sendRedirect("/signIn.jsp");
         }
+
+        userId = user.getId();
     } catch(Exception ex) {
         response.sendRedirect("/signIn.jsp");
     }
@@ -31,7 +34,7 @@
             Iterator<Test> itr = testList.iterator();
             Test test = null;
         %>
-        <div style="height: 200px; overflow: scroll">
+        <div>
             <table class="table bg-info table-striped">
                 <tr>
                     <th>Name</th>
@@ -43,15 +46,27 @@
                     <%
                         while(itr.hasNext()) {
                             test = itr.next();
+
+                            int testResult = testDao.getTestResult(userId, test.getId());
                     %>
                     <td><%= test.getName()  %></td>
                     <td><%= test.getDescription()  %></td>
                     <td style="width: 10%">
+                        <%
+                            if(testResult >= 0) {
+                        %>
+                            Grade: <%= testResult %>
+                        <%
+                            } else {
+                        %>
                         <form method="POST" action="../TestHandler">
                             <button class="btn btn-primary btn-sm" tooltip="View test" ><span class="glyphicon">view</span></button>
                             <input type="hidden" name="action" value="studentView" >
                             <input type="hidden" name="ID" value="<%= test.getId() %>" >
                         </form>
+                        <%
+                            }
+                        %>
                     </td>
                 </tr>
                 <%

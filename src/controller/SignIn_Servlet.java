@@ -64,8 +64,6 @@ public class SignIn_Servlet extends HttpServlet {
                 response.sendRedirect("admin/home.jsp");
             } else if (user.getRole() == 2) {
                 response.sendRedirect("student/home.jsp");
-            } else {
-                response.sendRedirect("signIn-Success.jsp");
             }
 
         } else {
