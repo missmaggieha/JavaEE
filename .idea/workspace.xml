@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea1a0abf-fd0c-466e-ac66-7013a46d29a8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Quiz/controller/SignIn_Servlet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Quiz/model/TestDao.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/hello.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/hobby.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/instructor.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/showCoffeeList.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/signIn-Success.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/student.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/user-crud/add.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/user-crud/edit.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/web/user-crud/list.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/controller/TestHandler.class" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/controller/TestHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/model/QuestionDao.class" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/model/QuestionDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/model/TestDao.class" afterPath="$PROJECT_DIR$/out/artifacts/Quiz_war_exploded/WEB-INF/classes/model/TestDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Quiz/controller/TestHandler.class" afterPath="$PROJECT_DIR$/out/production/Quiz/controller/TestHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Quiz/model/QuestionDao.class" afterPath="$PROJECT_DIR$/out/production/Quiz/model/QuestionDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/SignIn_Servlet.java" afterPath="$PROJECT_DIR$/src/controller/SignIn_Servlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/TestHandler.java" afterPath="$PROJECT_DIR$/src/controller/TestHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/TestDao.java" afterPath="$PROJECT_DIR$/src/model/TestDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/student/home.jsp" afterPath="$PROJECT_DIR$/web/student/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/student/view-test.jsp" afterPath="$PROJECT_DIR$/web/student/view-test.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Quiz" afterPath="" />
     </list>
     <ignored path="Quiz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -317,6 +292,16 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Quiz" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Quiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Quiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1117,12 +1102,12 @@
       <workItem from="1459362726584" duration="28319000" />
       <workItem from="1459817684257" duration="4133000" />
       <workItem from="1459979759098" duration="8044000" />
-      <workItem from="1459989464343" duration="6746000" />
+      <workItem from="1459989464343" duration="6892000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165001000" />
+    <option name="totallyTimeSpent" value="165147000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1431" y="24" width="1855" height="1056" extended-state="6" />
